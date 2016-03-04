@@ -178,7 +178,7 @@ sub run_muscle
 
 		foreach my $feature_id (@{$params->{'featureset_ids'}}){
 			print "$feature_id\n";
-			$feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
+			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
 
 			print Dumper $feature."\n\n";
 		
