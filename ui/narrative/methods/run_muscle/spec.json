@@ -1,0 +1,128 @@
+{
+    "ver": "0.0.1",
+    "authors": [
+        "mshukla"
+    ],
+    "contact": "help@kbase.us",
+    "categories": ["active"],
+    "widgets": {
+        "input": null,
+        "output": null
+    },
+    "parameters": [ 
+        {
+            "id": "feature_ids",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": true,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": [ "KBaseGenomes.Feature-2.1" ]
+            }
+        },
+        {
+            "id": "featureset_id",
+            "optional": true,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": [ "KBaseCollections.FeatureSet" ]
+            }
+        },
+        {
+            "id": "seq_type",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "NA" ],
+            "field_type": "dropdown",
+						"dropdown_options":{
+      				"options": [
+        				{
+          				"value": "NA",
+          				"display": "NA"
+        				},
+        				{
+          			"value": "AA",
+          			"display": "AA"
+        				}
+							]
+        		}
+				},
+				{	
+            "id": "format",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "dropdown",
+						"dropdown_options":{
+      				"options": [
+        				{
+          				"value": "html",
+          				"display": "html"
+        				},
+        				{
+          				"value": "msf",
+          				"display": "msf"
+        				},
+        				{
+          				"value": "clw",
+          				"display": "clw"
+        				}
+							]
+        		}
+				}
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "Muscle",
+            "method": "run_muscle",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace"
+                },
+                {
+                    "input_parameter": "feature_ids",
+                    "target_property": "feature_ids"
+                },
+                {
+                    "input_parameter": "featureset_id",
+                    "target_property": "featureset_id"
+                },
+                {
+                    "input_parameter": "seq_type",
+                    "target_property": "seq_type"
+                },
+                {
+                    "input_parameter": "format",
+                    "target_property": "format"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0],
+                    "target_property": "MuscleResults"
+                },
+                {
+                    "input_parameter": "featureset_id",
+                    "target_property": "featureset_id"
+                },
+                {
+                    "input_parameter": "seq_type",
+                    "target_property": "seq_type"
+                },
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}

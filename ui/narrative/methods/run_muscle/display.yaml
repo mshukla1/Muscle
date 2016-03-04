@@ -1,0 +1,52 @@
+#
+# define display information
+#
+name: Muscle
+tooltip: |
+    Build NA/AA multiple sequence alignment using Muscle
+screenshots: []
+
+icon: icon.png
+
+#
+# define a set of similar methods that might be useful to the user
+#
+suggestions:
+    apps:
+        related:
+            []
+        next:
+            []
+    methods:
+        related:
+            [build_feature_set]
+        next:
+            []
+
+#
+# Configure the display and description of parameters
+#
+parameters :
+    feature_ids :
+        ui-name : |
+            Feature IDs
+        short-hint : |
+            Features to build MSA
+    featureset_id :
+        ui-name : |
+            Feature Set Name
+        short-hint : |
+            The Feature set to build MSA
+    seq_type :
+        ui-name : |
+            Sequence Type
+        short-hint : |
+            Sequence type, NA or AA
+    format :
+        ui-name : |
+            Output Format
+        short-hint : |
+            Output File Format, HTML/MSF/CLW
+
+description : |
+    <p>This method allows contrustion of MSA from an input Feature Set using NA or AA sequences.</p>
