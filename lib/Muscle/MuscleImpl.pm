@@ -160,7 +160,7 @@ sub run_muscle
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
   
-		print Dumper $params->{'feature_ids'} ."\n\n"; 
+		print Dumper @{$params->{'feature_ids'}} ."\n\n"; 
  
 =pod
 
