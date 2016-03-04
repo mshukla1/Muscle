@@ -235,7 +235,7 @@ sub run_muscle
     print("returning: ".Dumper($return)."\n");
 =cut   
  
-    #END filter_contigs
+    #END run_muscle
     my @_bad_returns;
     (ref($return) eq 'HASH') or push(@_bad_returns, "Invalid type for return variable \"return\" (value was \"$return\")");
     if (@_bad_returns) {
