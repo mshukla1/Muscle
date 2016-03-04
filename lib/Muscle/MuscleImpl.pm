@@ -138,7 +138,7 @@ sub run_muscle
 		if (!exists $params->{'feature_ids'}) {
         print  "Parameter feature_ids is not set in input arguments";
     }
-    my $feature_ids=$params->{'featureset_ids'};
+    my $feature_ids=$params->{'feature_ids'};
     
     if (!exists $params->{'featureset_id'}) {
         print  "Parameter featureset_id is not set in input arguments";
@@ -160,7 +160,7 @@ sub run_muscle
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
   
-		print Dumper $params->{'featureset_ids'} ."\n\n"; 
+		print Dumper $params->{'feature_ids'} ."\n\n"; 
  
 =pod
 
