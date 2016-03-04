@@ -159,7 +159,9 @@ sub run_muscle
     my $provenance=$ctx->provenance;
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
-   
+  
+		print Dumper $params->{'featureset_ids'} ."\n\n"; 
+ 
 =pod
 
 		eval {
@@ -171,8 +173,6 @@ sub run_muscle
     my $features=$featureSet->{features};
 
     print("Got FeatureSet data.\n");
-
-=cut    
 
 		my @feature_ids = @{$params->{'featureset_ids'}};
 
