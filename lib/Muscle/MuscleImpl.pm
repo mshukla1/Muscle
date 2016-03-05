@@ -119,9 +119,9 @@ sub run_muscle
     my @_bad_arguments;
     (ref($params) eq 'HASH') or push(@_bad_arguments, "Invalid type for argument \"params\" (value was \"$params\")");
     if (@_bad_arguments) {
-	my $msg = "Invalid arguments passed to filter_contigs:\n" . join("", map { "\t$_\n" } @_bad_arguments);
+	my $msg = "Invalid arguments passed to run_muscle:\n" . join("", map { "\t$_\n" } @_bad_arguments);
 	Bio::KBase::Exceptions::ArgumentValidationError->throw(error => $msg,
-							       method_name => 'filter_contigs');
+							       method_name => 'run_muscle');
     }
 
     my $ctx = $Muscle::MuscleServer::CallContext;
@@ -160,7 +160,9 @@ sub run_muscle
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
   
-		print Dumper @{$params->{'feature_ids'}} ."\n\n"; 
+		my $feature_ids = (split /,/, (join ',', $params->{'feature_ids'});
+
+		print "#### $feature_ids ###\n";
  
 =pod
 
