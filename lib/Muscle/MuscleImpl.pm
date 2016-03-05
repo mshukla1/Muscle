@@ -164,9 +164,10 @@ sub run_muscle
  
 		foreach my $feature_id (@{$params->{'feature_ids'}}){
 
-			print "Feature_id: $feature_id\n";
 			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
-			print "Feature data:\n". Dumper($feature). "\n\n";
+			
+			#print "Feature_id: $feature_id\n";
+			#print "Feature data:\n". Dumper($feature). "\n\n";
 
 			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{dna_sequence}\n" if $params->{seq_type} eq 'NA';
 			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{protein_translation}\n" if $params->{seq_type} eq 'AA';
@@ -175,7 +176,7 @@ sub run_muscle
 
 		my $fasta = join "", @fasta;
 
-		print "$fasta\n";
+		#print "$fasta\n";
 
 		my $muscle_out = "";
 
