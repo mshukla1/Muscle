@@ -161,7 +161,8 @@ sub run_muscle
     my $featureSet=undef;
  
 		print Dumper($params->{'feature_ids'});
-	
+
+		print "data type:". ref($params->{'feature_ids'});	
 		
 		foreach my $feature_id ($params->{'feature_ids'}){
 
