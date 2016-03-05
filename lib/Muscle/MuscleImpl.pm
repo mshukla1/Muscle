@@ -168,10 +168,17 @@ sub run_muscle
 			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
 			print "Feature data:\n". Dumper($feature). "\n\n";
 
-			print ">$feature->{id}   $feature->{function}\n$feature->{dna_sequence}" if $params->{seq_type} eq 'NA';
-			print ">$feature->{id}   $feature->{function}\n$feature->{protein_translation}" if $params->{seq_type} eq 'AA';
+			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{dna_sequence}" if $params->{seq_type} eq 'NA';
+			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{protein_translation}" if $params->{seq_type} eq 'AA';
 
 		}	
+
+		my $fasta = join /\n/, @fasta;
+		my $muscle_out = "";
+
+		`muscle < $fasta > $uscle_out`;
+
+		print "\n\n$muscle_out\n\n";
 	
 =pod
 
