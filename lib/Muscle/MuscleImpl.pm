@@ -176,7 +176,7 @@ sub run_muscle
 		my $fasta = join /\n/, @fasta;
 		my $muscle_out = "";
 
-		`muscle < $fasta > $uscle_out`;
+		`muscle -clw < $fasta > $muscle_out`;
 
 		print "\n\n$muscle_out\n\n";
 	
