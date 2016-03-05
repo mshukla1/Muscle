@@ -161,11 +161,15 @@ sub run_muscle
     my $featureSet=undef;
  
 		print Dumper($params->{'feature_ids'});
- 
-		my $feature_ids = split /,/, (join ',', $params->{'feature_ids'});
+		
+		foreach my $feature_id (@{$params->{'featureset_ids'}}){
 
-		print "#### $feature_ids ###\n";
- 
+			print "$feature_id\n";
+			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
+			print Dumper($feature). "\n\n";
+
+		}	
+	
 =pod
 
 		eval {
@@ -178,7 +182,6 @@ sub run_muscle
 
     print("Got FeatureSet data.\n");
 
-		my @feature_ids = @{$params->{'featureset_ids'}};
 
 		foreach my $feature_id (@{$params->{'featureset_ids'}}){
 			print "$feature_id\n";
