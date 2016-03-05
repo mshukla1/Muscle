@@ -179,7 +179,7 @@ sub run_muscle
 
 		my $muscle_out = "";
 
-		$muscle_out = `echo $fasta \| muscle -clw`;
+		$muscle_out = `echo "$fasta" \| muscle -clw`;
 
 		print "\n\n$muscle_out\n\n";
 	
