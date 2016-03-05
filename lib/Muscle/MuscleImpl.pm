@@ -168,12 +168,12 @@ sub run_muscle
 			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
 			print "Feature data:\n". Dumper($feature). "\n\n";
 
-			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{dna_sequence}" if $params->{seq_type} eq 'NA';
-			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{protein_translation}" if $params->{seq_type} eq 'AA';
+			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{dna_sequence}\n" if $params->{seq_type} eq 'NA';
+			push @fasta, ">$feature->{id}   $feature->{function}\n$feature->{protein_translation}\n" if $params->{seq_type} eq 'AA';
 
 		}	
 
-		my $fasta = join /\n/, @fasta;
+		my $fasta = join "", @fasta;
 
 		print "$fasta\n";
 
