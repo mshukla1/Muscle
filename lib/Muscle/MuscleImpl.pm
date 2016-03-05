@@ -160,7 +160,7 @@ sub run_muscle
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
   
-		my $feature_ids = (split /,/, (join ',', $params->{'feature_ids'});
+		my $feature_ids = split /,/, (join ',', $params->{'feature_ids'});
 
 		print "#### $feature_ids ###\n";
  
