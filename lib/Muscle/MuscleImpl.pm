@@ -161,12 +161,13 @@ sub run_muscle
     my $featureSet=undef;
  
 		print Dumper($params->{'feature_ids'});
+	
 		
 		foreach my $feature_id ($params->{'feature_ids'}){
 
-			print "$feature_id\n";
+			print "Feature_id: $feature_id\n";
 			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
-			print Dumper($feature). "\n\n";
+			print "Feature data:\n". Dumper($feature). "\n\n";
 
 		}	
 	
