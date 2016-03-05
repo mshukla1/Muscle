@@ -159,16 +159,17 @@ sub run_muscle
     my $provenance=$ctx->provenance;
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
- 
-		print Dumper($params->{'feature_ids'});
 
-		print "data type:". ref($params->{'feature_ids'});	
-		
+		my @fasta = ();
+ 
 		foreach my $feature_id (@{$params->{'feature_ids'}}){
 
 			print "Feature_id: $feature_id\n";
 			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
 			print "Feature data:\n". Dumper($feature). "\n\n";
+
+			print ">$feature->{id}   $feature->{function}\n$feature->{dna_sequence}" if $params->{seq_type} eq 'NA';
+			print ">$feature->{id}   $feature->{function}\n$feature->{protein_translation}" if $params->{seq_type} eq 'AA';
 
 		}	
 	
