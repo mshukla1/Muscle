@@ -164,7 +164,7 @@ sub run_muscle
 
 		print "data type:". ref($params->{'feature_ids'});	
 		
-		foreach my $feature_id ($params->{'feature_ids'}){
+		foreach my $feature_id (\$params->{'feature_ids'}){
 
 			print "Feature_id: $feature_id\n";
 			my $feature=$wsClient->get_objects([{workspace=>$workspace_name,name=>$feature_id}])->[0]{data};
