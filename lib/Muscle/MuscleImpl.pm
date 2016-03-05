@@ -159,7 +159,9 @@ sub run_muscle
     my $provenance=$ctx->provenance;
     my $wsClient=Bio::KBase::workspace::Client->new($self->{'workspace-url'},token=>$token);
     my $featureSet=undef;
-  
+ 
+		print Dumper($params->{'feature_ids'});
+ 
 		my $feature_ids = split /,/, (join ',', $params->{'feature_ids'});
 
 		print "#### $feature_ids ###\n";
